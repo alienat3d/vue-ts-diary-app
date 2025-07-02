@@ -10,10 +10,10 @@ const user: User = reactive({
   username: "alienat3d",
   settings: [],
 });
-
-console.log(user);
 </script>
 
+<!-- ? 5.4 Когда мы начнём писать Vue-директиву "v-on" (сокр. @), то увидим целый длинный список разнообразных событий. Среди них также появился наш новый "create". Однако, если мы попытаемся найти "create" на другом компоненте, то увидим, что автозаполнение не работает, т.к. мы его там не регистрировали. -->
+<!-- Go to [src\components\EntryEditor.vue] -->
 <template>
   <main class="container m-auto p-10">
     <TheHeader />
