@@ -5,5 +5,6 @@
 - [Vue Docs: Typing Reactive](https://vuejs.org/guide/typescript/composition-api.html#typing-reactive)
 - [Vue Docs: Typing Ref()](https://vuejs.org/guide/typescript/composition-api.html#typing-ref)
 - [Vue Docs: Typing Computed Props](https://vuejs.org/guide/typescript/composition-api.html#typing-computed)
-- []()
+- [Vue Docs: Typing Event Handlers](https://vuejs.org/guide/typescript/composition-api.html#typing-event-handlers)
+- [Vue Docs: Component Events](https://vuejs.org/guide/components/events.html)
 - []()

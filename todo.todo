@@ -1,0 +1,2 @@
+Tasks:
+	- color in red when reach max. count the current charCount num and maxChars num [src\components\EntryEditor.vue]
