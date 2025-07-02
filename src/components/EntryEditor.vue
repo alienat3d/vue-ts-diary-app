@@ -20,18 +20,23 @@ const maxCharsColor = computed<boolean>(
 // ? 5.3 Но как же работают кастомные события. Для рассмотрения этого механизма в подробностях перейдём в родит. комп.
 // Go to [src\App.vue]
 // 5.5 Мы могли бы сделать наши кастомные события более видимыми в коде, если добавим в начало какой-то символ, пусть им будет "@".
+// * 6.0 На прошлом уроке мы уже зарегистрировали кастомное событие, но мы можем его улучшить указав ему тип, прописав внутри настройки. Мы укажем названия события для "evt", а также дадим произвольное имя для payload - "entry" и опишем подробно его содержимое. Чтобы описать несколько кастомных событий можно продублировать эту строчку в "{}" и описать новое.
+// Go to [src\App.vue]
 // events
-defineEmits(["@create"]);
+// defineEmits(["@create"]);
+defineEmits<{
+  (e: "@create", entry: { text: string; emoji: Emoji | null }): void;
+  // (e: "@someOtherEvent", payload: string): void;
+}>();
 
 // methods
-const handleTextInput = (evt: Event) => {
-  const textarea = evt.target as HTMLTextAreaElement;
+const handleTextInput = (e: Event) => {
+  const textarea = e.target as HTMLTextAreaElement;
 
   if (textarea.value.length <= MAX_CHARS) {
     text.value = textarea.value;
   } else {
     text.value = textarea.value = textarea.value.substring(0, MAX_CHARS);
-    evt.preventDefault();
   }
 };
 </script>
