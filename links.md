@@ -8,5 +8,5 @@
 - [Vue Docs: Typing Event Handlers](https://vuejs.org/guide/typescript/composition-api.html#typing-event-handlers)
 - [Vue Docs: Component Events](https://vuejs.org/guide/components/events.html)
 - [Vue Docs: Typing Component Emits](https://vuejs.org/guide/typescript/composition-api.html#typing-component-emits)
-- []()
+- [Vue Docs: Typing Component Props](https://vuejs.org/guide/typescript/composition-api.html#typing-component-props)
 - []()

@@ -6,7 +6,7 @@ import Emoji from "./Emojis";
 // 7.4 А ещё в настоящем веб-приложении у данных обычно есть "userId", чтобы привязать данные к конкретному пользователю, которых их создал, а также "id" самой записи.
 // Go to [src\components\EntryEditor.vue]
 export default interface Entry {
-  id: number;
+  id: string;
   body: string;
   emoji: Emoji | null;
   createdAt: Date;
