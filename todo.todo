@@ -1,4 +1,4 @@
 Tasks:
 	- color in red when reach max. count the current charCount num and maxChars num [src\components\EntryEditor.vue] @done
-	- [src\components\EntryEditor.vue] For generating a random id replace 'Math.random()' method to lib 'uuid' or something similar;
+	- [src\components\EntryEditor.vue] For generating a random id replace 'Math.random()' method to lib 'uuid' or something similar; @done
 	- 
