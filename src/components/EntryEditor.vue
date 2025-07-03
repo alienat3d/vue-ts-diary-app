@@ -2,7 +2,6 @@
 import { computed, ref } from "vue";
 import Emoji from "@/types/Emojis";
 import Entry from "@/types/Entry";
-import Entry from "@/types/Entry";
 import EmojiField from "@/components/EmojiField.vue";
 import ArrowCircleRight from "@/assets/icons/arrow-circle-right.svg";
 
@@ -27,12 +26,9 @@ const maxCharsColor = computed<boolean>(
 // * 6.0 На прошлом уроке мы уже зарегистрировали кастомное событие, но мы можем его улучшить указав ему тип, прописав внутри настройки. Мы укажем названия события для "evt", а также дадим произвольное имя для payload - "entry" и опишем подробно его содержимое. Чтобы описать несколько кастомных событий можно продублировать эту строчку в "{}" и описать новое.
 // Go to [src\App.vue]
 // 7.5 Теперь мы используем новый interface "Entry", вместо типизацией объектом, как делали до того. ↓
-// 7.5 Теперь мы используем новый interface "Entry", вместо типизацией объектом, как делали до того. ↓
 // events
 // defineEmits(["@create"]);
 defineEmits<{
-  // (e: "@create", entry: { text: string; emoji: Emoji | null }): void;
-  (e: "@create", entry: Entry): void;
   // (e: "@create", entry: { text: string; emoji: Emoji | null }): void;
   (e: "@create", entry: Entry): void;
   // (e: "@someOtherEvent", payload: string): void;
