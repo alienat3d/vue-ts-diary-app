@@ -10,4 +10,7 @@
 - [Vue Docs: Typing Component Emits](https://vuejs.org/guide/typescript/composition-api.html#typing-component-emits)
 - [Vue Docs: Typing Component Props](https://vuejs.org/guide/typescript/composition-api.html#typing-component-props)
 - [Vue Docs: Typing Template Refs](https://vuejs.org/guide/typescript/composition-api.html#typing-template-refs)
+- [Vue Docs: TypeScript with the Options API](https://vuejs.org/guide/typescript/options-api.html)
+- [Vue Docs: Augmenting Global Properties](https://vuejs.org/guide/typescript/options-api.html#augmenting-global-properties)
+- [Vue Docs: Augmenting Custom Options](https://vuejs.org/guide/typescript/options-api.html#augmenting-custom-options)
 - []()
