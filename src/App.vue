@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { User } from "./types/User";
-import Emoji from "./types/Emojis";
 import { reactive } from "vue";
 import TheHeader from "@/components/TheHeader.vue";
 import EntryEditor from "@/components/EntryEditor.vue";
 import EntryCard from "@/components/EntryCard.vue";
+import Entry from "./types/Entry";
 
 const user: User = reactive({
   id: 1,
@@ -12,8 +12,12 @@ const user: User = reactive({
   settings: [],
 });
 
-// 6.1.1 Доступ к передаваемым событием данным из payload мы можем получить через спец. переменную "$event"
-const handleCreateEntry = (entry: { text: string; emoji: Emoji | null }) => {
+// 6.1.1 Доступ к передаваемым событием данным из payload мы можем получить через спец. переменную "$event".
+// * 7.0 На этом уроке займёмся рефакторингом и улучшим все случаи, где мы пока использовали в качестве типа именованный объект, чтобы определить запись "entry" журнала. А заодно мы сможем получить представление как TS может быть полезен в рефакторинге, помогая не забывать изменять при этом определённые элементы. Итак для этого создадим ещё один файл с interface.
+// Go to [src\types\Entry.ts]
+// 7.8 Здесь мы также заменим типизацию через объект на новый interface.
+// const handleCreateEntry = (entry: { text: string; emoji: Emoji | null }) => {
+const handleCreateEntry = (entry: Entry) => {
   console.log(entry);
 };
 </script>
