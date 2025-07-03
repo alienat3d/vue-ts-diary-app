@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-import { computed, onMounted, ref } from "vue";
+import { computed, inject, onMounted, ref } from "vue";
 import { v4 as uuidv4 } from "uuid";
 import Emoji from "@/types/Emojis";
 import Entry from "@/types/Entry";
+import { userInjectionKey } from "@/types/injectionKeys";
 import EmojiField from "@/components/EmojiField.vue";
 import ArrowCircleRight from "@/assets/icons/arrow-circle-right.svg";
 
@@ -10,6 +11,7 @@ import ArrowCircleRight from "@/assets/icons/arrow-circle-right.svg";
 const MAX_CHARS = 280;
 const body = ref("");
 const emoji = ref<Emoji | null>(null);
+const user = inject(userInjectionKey);
 
 // * 10.0 Было бы неплохо сделать так, чтобы при загрузки нашего приложения происходила бы автоматическая фокусировка на textarea (мы могли бы сделать это и с помощью HTML атрибута, но нам нужно потренировать рефы шаблона). Итак создадим переменную реф "textarea". Используем дженерик для типизации в конкретный "HTML-элемент" или "null". "null" необходим здесь, т.к. элемент не будет существовать, пока его не подключат к DOM. ↓
 // template refs
@@ -59,13 +61,16 @@ onMounted(() => textarea.value?.focus());
 </script>
 
 <!-- 10.1 Далее, чтобы нам привязать эту переменную реф к элементу "textarea" мы добавим ему атрибут "ref" со значением в виде названия этой переменной. ↑ -->
+<!-- 11.8 Нам нужно подставить никнейм пользователя в HTML-шаблон и сделаем мы это при помощи provide/inject метода, который только что рассмотрели. -->
+<!-- 11.9 Также стоит учесть, что у нас может быть неавторизированный пользователь и для него нужно отображать "anonymous". -->
+<!-- Go to [src\components\EntryCard.vue] -->
 <template>
   <form class="entry-form" @submit.prevent="handleSubmit">
     <textarea
       @keyup="handleTextInput"
       ref="textarea"
       :value="body"
-      placeholder="New Journal Entry for alienat3d"
+      :placeholder="`New Journal Entry for ${user?.username || 'anonymous'}`"
     ></textarea>
     <EmojiField v-model="emoji" />
     <div class="entry-form-footer">
