@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { v4 as uuidv4 } from "uuid";
 import Emoji from "@/types/Emojis";
 import Entry from "@/types/Entry";
@@ -10,6 +10,10 @@ import ArrowCircleRight from "@/assets/icons/arrow-circle-right.svg";
 const MAX_CHARS = 280;
 const body = ref("");
 const emoji = ref<Emoji | null>(null);
+
+// * 10.0 Было бы неплохо сделать так, чтобы при загрузки нашего приложения происходила бы автоматическая фокусировка на textarea (мы могли бы сделать это и с помощью HTML атрибута, но нам нужно потренировать рефы шаблона). Итак создадим переменную реф "textarea". Используем дженерик для типизации в конкретный "HTML-элемент" или "null". "null" необходим здесь, т.к. элемент не будет существовать, пока его не подключат к DOM. ↓
+// template refs
+const textarea = ref<HTMLTextAreaElement | null>(null);
 
 // computed
 const charCount = computed(() => body.value.length);
@@ -49,12 +53,17 @@ const handleSubmit = () => {
 
   cleanUpForm();
 };
+
+// 10.2 Осталось с помощью хука "onMounted" фокусироваться на textarea в момент подключения элемента к DOM.
+onMounted(() => textarea.value?.focus());
 </script>
 
+<!-- 10.1 Далее, чтобы нам привязать эту переменную реф к элементу "textarea" мы добавим ему атрибут "ref" со значением в виде названия этой переменной. ↑ -->
 <template>
   <form class="entry-form" @submit.prevent="handleSubmit">
     <textarea
       @keyup="handleTextInput"
+      ref="textarea"
       :value="body"
       placeholder="New Journal Entry for alienat3d"
     ></textarea>
