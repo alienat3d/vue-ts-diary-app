@@ -31,13 +31,16 @@ const handleCreateEntry = (entry: Entry) => {
 <!-- Go to [src\components\EntryEditor.vue] -->
 <!-- 6.1.0 Наступило время применить кастомное событие "@create" здесь. Мы будем слушать это событие, т.е. сигнал, отправляемый дочерним комп. родительскому по событию submit, при сохранении формы, и тогда будет вызываться функция "handleCreateEntry". ↑ -->
 <!-- 8.8 Затем мы будем циклом распечатывать все находящиеся в реактивном массиве "entries" записи. Не забываем про "key" атрибут, необходимый для учёта Vue уникальных элементов списка, чтобы не перепутывался их порядок. -->
+<!-- * 9.0 Нам нужен способ, чтобы передать данные из массива "entries" в комп. "EntryCard" и конечно мы будем использовать пропы для этого. На этом примере заодно рассмотрим работу с пропами во Vue-компоненте с TypeScript. -->
+<!-- Go to [src\components\EntryCard.vue] -->
+<!-- 9.7 Ок, осталось добавить через проп комп. "EntryCard" сами данные для заполнения карточек с записями. -->
 <template>
   <main class="container m-auto p-10">
     <TheHeader />
     <EntryEditor @@create="handleCreateEntry" />
     <ul>
       <li v-for="entry in entries" :key="entry.id">
-        <EntryCard />
+        <EntryCard :entry="entry" />
       </li>
     </ul>
   </main>
