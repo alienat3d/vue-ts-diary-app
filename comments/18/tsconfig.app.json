@@ -1,0 +1,18 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  // 13.3 Однако нам ещё требуется добавить этот файл типов в настройки TS, чтобы он заработал.
+  // Go to [src\components\DateDisplay.vue]
+  "include": ["env.d.ts", "vue-global-props.d.ts", "src/**/*", "src/**/*.vue"],
+  "exclude": ["src/**/__tests__/*"],
+  "compilerOptions": {
+    // ? "strict": false, - кстати, если нам нужно отключить "строгий режим" TypeScript, то сделать это можно подобной строчкой, однако делать это не рекомендуется без особой нужды. На самом деле единственный пример, который приходит в голову, когда это действительно может понадобиться и это быстрый перенос готового проекта, написанного на Vanilla JS в TypeScript и очень не хочется возиться с типизацией его.
+    "verbatimModuleSyntax": false,
+    "module": "ESNext",
+    "composite": true,
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}

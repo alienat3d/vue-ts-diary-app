@@ -13,4 +13,4 @@
 - [Vue Docs: TypeScript with the Options API](https://vuejs.org/guide/typescript/options-api.html)
 - [Vue Docs: Augmenting Global Properties](https://vuejs.org/guide/typescript/options-api.html#augmenting-global-properties)
 - [Vue Docs: Augmenting Custom Options](https://vuejs.org/guide/typescript/options-api.html#augmenting-custom-options)
-- []()
+- [Vue Docs: TypeScript](https://vuejs.org/guide/typescript/overview.html)
